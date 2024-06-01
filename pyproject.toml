@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "simple-barber"
+version = "0.1.0"
+description = "Simple reservation system for barbers written in Next.js that uses FastAPI with SQLAlchemy as the API backend"
+authors = ["Jakub Malý <malyjak@proton.me>"]
+license = "MIT"
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.111.0"
+sqlalchemy = "^2.0.30"
+psycopg2 = "^2.9.9"
+httpx = "^0.27.0"
+pytest = "^8.2.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
