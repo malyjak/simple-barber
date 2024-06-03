@@ -18,6 +18,12 @@ This is implemented using `next.config.js` rewrites to map any request to `/api/
 
 On localhost, the rewrite will be made to the `127.0.0.1:8000` port, which is where the FastAPI server is running.
 
+## Authentication
+
+[Clerk](https://clerk.com/) is used for authentication to access the administration area of the application. Once you are signed into your account, create a new application named "simple-barber". Select just "Email" and unselect all the other options when creating the application.
+
+Then create `.env.local` file in the root directory and store your Clerk's secrets there. Or in case of deployment, see the [Vercel Environment Variables](https://vercel.com/docs/projects/environment-variables) page.
+
 ## Getting started
 
 Install dependencies:
@@ -30,12 +36,6 @@ Run development server:
 npm run dev
 ```
 
-## Authentication
-
-[Clerk](https://clerk.com/) is used for authentication to access the administration area of the application. Once you are signed into your account, create a new application named "simple-barber". Select just "Email" and unselect all the other options when creating the application.
-
-Then create `.env.local` file in the root directory and store your Clerk's secrets there.
-
 ## Developing Locally
 
 You can clone & create this repo with the following command
@@ -46,7 +46,7 @@ npx create-next-app simple-barber --example "https://github.com/malyjak/simple-b
 
 ## Deployment
 
-You can clone & deploy it to Vercel with one click:
+You can clone & deploy it to the Vercel with one click:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmalyjak%2Fsimple-barber%2Ftree%2Fdevelop)
 
