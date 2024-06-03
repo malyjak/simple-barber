@@ -4,3 +4,4 @@
 /api/__pycache__
 
 next-env.d.ts
+.env.local
