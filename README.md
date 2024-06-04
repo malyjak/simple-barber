@@ -20,9 +20,9 @@ On localhost, the rewrite will be made to the `127.0.0.1:8000` port, which is wh
 
 ## Authentication
 
-[Clerk](https://clerk.com/) is used for authentication to access the administration area of the application. Once you are signed into your account, create a new application named "simple-barber". Select just "Email" and unselect all the other options when creating the application.
+[Clerk](https://clerk.com/) is used for authentication to access the administration area of the application. Once you are signed into your account, create a new application named "simple-barber". Select just "Email" and unselect all the other options when creating the application. Navigate to "User & Authentication" -> "Email, Phone, Username". Use only "Email verification code" verification strategy and set "Allow users to delete their accounts" and "Allow users to create organizations" to off. Now navigate back to "Users" and create a new user with your email address. Again navigate to "User & Authentication" -> "Restrictions". Enable allowlist and enter your email address.
 
-Then create `.env.local` file in the root directory and store your Clerk's secrets there. Or in case of deployment, see the [Vercel Environment Variables](https://vercel.com/docs/projects/environment-variables) page.
+Then create `.env.local` from `.env.local.example` and update Clerk's secrets there. Or in case of deployment, see the [Vercel Environment Variables](https://vercel.com/docs/projects/environment-variables) page.
 
 ## Getting started
 
