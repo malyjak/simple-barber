@@ -4,6 +4,22 @@ from pydantic import BaseModel, EmailStr
 from typing import Optional
 
 
+# Service classes.
+class ServiceBase(BaseModel):
+    name: str
+    duration_in_slots: int
+
+class ServiceCreate(ServiceBase):
+    pass
+
+class ServiceUpdate(ServiceBase):
+    pass
+
+class Service(ServiceBase):
+    id: int
+
+
+# Slot classes.
 class SlotBase(BaseModel):
     date: date
     occupied: Optional[bool] = False

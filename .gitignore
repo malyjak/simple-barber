@@ -2,6 +2,7 @@
 /.venv
 /.next
 /api/__pycache__
+/api/tests/__pycache__
 
 next-env.d.ts
 .env.local

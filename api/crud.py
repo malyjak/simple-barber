@@ -2,6 +2,40 @@ from sqlalchemy.orm import Session
 from . import models, schemas
 
 
+# Service operations.
+def get_services(db: Session, skip: int = 0, limit: int = 100) -> list[models.Service]:
+    return db.query(models.Service).offset(skip).limit(limit).all()
+
+def get_service(db: Session, service_id: int) -> models.Service:
+    return db.query(models.Service).filter(models.Service.id == service_id).first()
+
+def create_service(db: Session, service: schemas.ServiceCreate) -> models.Service:
+    db_service = models.Service(**service.model_dump())
+    db.add(db_service)
+    db.commit()
+    db.refresh(db_service)
+
+    return db_service
+
+def update_service(db: Session, service_id: int, service_update:schemas.ServiceUpdate) -> models.Service:
+    db_service = get_service(db, service_id=service_id)
+    if db_service is not None:
+        db_service.name = service_update.name
+        db_service.duration_in_slots = service_update.duration_in_slots
+        db.commit()
+
+    return db_service
+
+def delete_service(db: Session, service_id: int) -> models.Service:
+    db_service = get_service(db, service_id=service_id)
+    if db_service is not None:
+        db.delete(db_service)
+        db.commit()
+
+    return db_service
+
+
+# Slot operations.
 def get_slots(db: Session, skip: int = 0, limit: int = 100) -> list[models.Slot]:
     return db.query(models.Slot).offset(skip).limit(limit).all()
 
