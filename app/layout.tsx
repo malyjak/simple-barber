@@ -2,8 +2,6 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Navbar from '../components/Navbar'
 
-import { ClerkProvider } from '@clerk/nextjs'
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -17,17 +15,11 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <ClerkProvider appearance={{
-            elements: {
-                footer: "hidden",
-            },
-          }}>
-            <html lang="en">
-                <body>
-                    <Navbar />
-                    {children}
-                </body>
-            </html> 
-        </ClerkProvider>
+        <html lang="en">
+            <body>
+                <Navbar />
+                {children}
+            </body>
+        </html>
     )
 }

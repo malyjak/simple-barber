@@ -1,5 +1,17 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
+import type { NextRequest } from 'next/server'
 
-export default clerkMiddleware();
+export function middleware(request: NextRequest) {
+    // const currentUser = request.cookies.get('currentUser')?.value
 
-export const config = {  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],};
+    // if (currentUser && !request.nextUrl.pathname.startsWith('/dashboard')) {
+    //     return Response.redirect(new URL('/dashboard', request.url))
+    // }
+
+    // if (!currentUser && !request.nextUrl.pathname.startsWith('/login')) {
+    //     return Response.redirect(new URL('/login', request.url))
+    // }
+}
+
+export const config = {
+    matcher: ['/((?!api|_next/static|_next/image|.*\\.png$).*)'],
+}

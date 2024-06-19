@@ -18,13 +18,27 @@ This is implemented using `next.config.js` rewrites to map any request to `/api/
 
 On localhost, the rewrite will be made to the `127.0.0.1:8000` port, which is where the FastAPI server is running.
 
-## Authentication
-
-[Clerk](https://clerk.com/) is used for authentication to access the administration area of the application. Once you are signed into your account, create a new application named "simple-barber". Select just "Email" and unselect all the other options when creating the application. Navigate to "User & Authentication" -> "Email, Phone, Username". Use only "Email verification code" verification strategy and set "Allow users to delete their accounts" and "Allow users to create organizations" to off. Now navigate back to "Users" and create a new user with your email address. Again navigate to "User & Authentication" -> "Restrictions". Enable allowlist and enter your email address.
-
-Then create `.env.local` from `.env.local.example` and update Clerk's secrets there. Or in case of deployment, see the [Vercel Environment Variables](https://vercel.com/docs/projects/environment-variables) page.
-
 ## Getting started
+
+Create a new user and a database in your PostgreSQL and modify variables inside `api/database.py`:
+```
+DB_USER = "simple-barber-user"
+DB_PASS = "simple-barber-pass"
+DB_NAME = "simple-barber-db"
+```
+
+Note: In case you are not using PostgreSQL, edit `DATABASE_URL` variable accordingly.
+
+Migrate data:
+```
+TODO
+```
+
+Generate your own secret for password hashing:
+```
+openssl rand -hex 32
+```
+and update `SECRET_KEY` variable inside `api/passlib.py`.
 
 Install dependencies:
 ```
@@ -35,6 +49,10 @@ Run development server:
 ```
 npm run dev
 ```
+
+Default credentials for addministration are:
+- username: admin
+- password: admin
 
 ## Developing Locally
 

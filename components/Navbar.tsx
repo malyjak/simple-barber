@@ -1,14 +1,10 @@
 import Link from 'next/link'
 
-import {
-    SignedIn,
-    SignOutButton
-} from '@clerk/nextjs'
-
 const Navbar = () => {
     const links = [
-        { title: 'Calendar', url: '/calendar' },
-        { title: 'Administration', url: '/admin', role: 'admin' }
+        { title: 'Reservation', url: '/' },
+        { title: 'Login', url: '/login' },
+        { title: 'Admin', url: '/admin', role: 'admin' }
     ];
 
     return (
@@ -17,7 +13,12 @@ const Navbar = () => {
                 <nav className='md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center'>
                     <Link href='/'>
                         <div className='mr-5 cursor-pointer hover:text-gray-900'>
-                            Calendar
+                            Reservation
+                        </div>
+                    </Link>
+                    <Link href='/login'>
+                        <div className='mr-5 cursor-pointer hover:text-gray-900'>
+                            Login
                         </div>
                     </Link>
                     <Link href='/admin'>
@@ -25,9 +26,6 @@ const Navbar = () => {
                             Administration
                         </div>
                     </Link>
-                    <SignedIn>
-                        <SignOutButton />
-                    </SignedIn>
                 </nav>
             </div>
         </header>
